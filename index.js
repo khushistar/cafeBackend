@@ -27,45 +27,12 @@ app.get("/", (req, res) => {
 // ______________________________________________________routes_____________
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/foods", foodRoutes);
-// app.use("/api/v1/category" ,)
 
 app.get("/cateitems", async (req, res) => {
   const cateitem = await cateitems.find();
-  // console.log(cateitem)
   res.status(200).send(cateitem);
 });
 
-// ---------------------------------------------------------------------------------Orderschema-------------
-
-// app.post("/order", async (req, res) => {
-//   let data = req.body.order_data;
-//   await data.splice(0, 0, { order_date: req.body.order_date });
-
-//   let eId = await Orderschema.findOne({ email: req.body.email });
-//   if (eId === null) {
-//     try {
-//       let result = new Orderschema({
-//         email: req.body.email,
-//         order_data: [data],
-//       });
-//       result = await result.save();
-//       res.json({ success: true, result });
-//     } catch (error) {
-//       res.send("Server Error", error);
-//     }
-//   } else {
-//     try {
-//       await Orderschema.findOneAndUpdate(
-//         { email: req.body.email },
-//         { $push: { order_data: data } }
-//       ).then(() => {
-//         res.json({ success: true });
-//       });
-//     } catch (error) {
-//       res.send("Server Error", error);
-//     }
-//   }
-// });
 // ---------------------------------------------------------------------------------GET-ORDER------------------
 
 app.post("/myorder", async (req, res) => {
