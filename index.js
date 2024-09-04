@@ -7,6 +7,7 @@ const cateitems = require("./cateconn");
 const Orderschema = require("./Orderschema");
 const authRoutes = require("./routes/authRoutes");
 const foodRoutes = require("./routes/foodRoutes");
+const bookingRoutes = require("./routes/bookingRoutes")
 
 dotenv.config();
 connectDB();
@@ -27,6 +28,10 @@ app.get("/", (req, res) => {
 // ______________________________________________________routes_____________
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/foods", foodRoutes);
+
+// ___________________________________________booking route__________
+
+app.use("/api/v1/booking", bookingRoutes)
 
 app.get("/cateitems", async (req, res) => {
   const cateitem = await cateitems.find();
