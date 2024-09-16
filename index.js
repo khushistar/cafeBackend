@@ -11,12 +11,7 @@ const bookingRoutes = require("./routes/bookingRoutes")
 
 dotenv.config();
 connectDB();
-
-const corsoption = {
-  origin: "http://localhost:3001/",
-  optionSuccessStatus: 200,
-};
-app.use(cors(corsoption));
+app.use(cors());
 // app.use(cors())
 
 app.use(express.json());
