@@ -12,8 +12,6 @@ const bookingRoutes = require("./routes/bookingRoutes")
 dotenv.config();
 connectDB();
 app.use(cors());
-// app.use(cors())
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
